@@ -182,6 +182,9 @@ class linkedList{
             }
         }
     }
+    export{
+        linkedList
+    }
 
  // Création de la liste chaînée
 let list = new linkedList();
