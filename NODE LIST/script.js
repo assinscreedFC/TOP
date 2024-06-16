@@ -183,11 +183,65 @@ class linkedList{
         }
     }
 
-    let list= new linkedList();
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.prepend(4);
-    list.show();
-    list.removeAt(0);
-    console.log(list.toString());
+ // Création de la liste chaînée
+let list = new linkedList();
+
+// Cas normal : Ajouter des éléments à la fin de la liste
+list.append(1);
+list.append(2);
+list.append(3);
+console.log("Append elements:", list.toString()); // (1) -> (2) -> (3) -> null
+
+// Cas spécial : Ajouter un élément au début de la liste
+list.prepend(0);
+console.log("Prepend element:", list.toString()); // (0) -> (1) -> (2) -> (3) -> null
+
+// Taille de la liste
+console.log("Size of list:", list.size()); // 4
+
+// Tête de la liste
+console.log("Head of list:", list.Fhead().value); // 0
+
+// Queue de la liste
+console.log("Tail of list:", list.tail().value); // 3
+
+// Élément à un index donné
+console.log("Element at index 2:", list.at(2).value); // 2
+
+// Cas spécial : Pop élément dans une liste avec un seul élément
+let singleElementList = new linkedList();
+singleElementList.append(1);
+singleElementList.pop();
+console.log("Pop single element list:", singleElementList.toString()); // head is null
+
+// Vérifier si un élément est dans la liste
+console.log("Contains 2:", list.contain(2)); // true
+console.log("Contains 4:", list.contain(4)); // false
+
+// Trouver l'index d'un élément
+console.log("Find index of 1:", list.find(1)); // 1
+console.log("Find index of 4:", list.find(4)); // null
+
+// Cas spécial : Insertion au début et à la fin de la liste
+list.insertAt(-1, 0);
+console.log("Insert -1 at index 0:", list.toString()); // (-1) -> (0) -> (1) -> (2) -> (3) -> null
+list.insertAt(4, list.size());
+console.log("Insert 4 at the end:", list.toString()); // (-1) -> (0) -> (1) -> (2) -> (3) -> (4) -> null
+
+// Cas spécial : Suppression de l'élément à l'index 0
+list.removeAt(0);
+console.log("Remove element at index 0:", list.toString()); // (0) -> (1) -> (2) -> (3) -> (4) -> null
+
+// Cas spécial : Suppression de l'élément à la fin
+list.removeAt(list.size() - 1);
+console.log("Remove last element:", list.toString()); // (0) -> (1) -> (2) -> (3) -> null
+
+// Cas spécial : Suppression d'un élément dans une liste vide
+let emptyList = new linkedList();
+emptyList.removeAt(0);
+console.log("Remove from empty list:", emptyList.toString()); // head is null
+
+// Cas spécial : Insertion dans une liste vide
+let emptyListForInsert = new linkedList();
+emptyListForInsert.insertAt(1, 0);
+console.log("Insert into empty list:", emptyListForInsert.toString()); // (1) -> null
