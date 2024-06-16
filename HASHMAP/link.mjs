@@ -97,7 +97,7 @@ class linkedList{
         }
         tail(){if(this.head===null){
             console.log("head is null");
-            return;
+            return null;
         }
             let temp=this.head;
             while (temp.nextNode!=null) {
@@ -107,7 +107,7 @@ class linkedList{
         }
         at(value){if(this.head===null){
             console.log("head is null");
-            return;
+            return false;
         }
             if(value>this.size()-1){
                 return false;
@@ -131,7 +131,7 @@ class linkedList{
         }
         contain(key){if(this.head===null){
             console.log("head is null");
-            return;
+            return false;
         }
             let temp=this.head;
             while (temp!=null) {
