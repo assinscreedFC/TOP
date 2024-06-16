@@ -33,14 +33,20 @@ class linkedList{
             }
         }
 
-        show(){
+        show(){if(this.head===null){
+                console.log("head is null");
+                return;
+            }
             let tmp = this.head;
             while(tmp!=null){
                 console.log(tmp.value);
                 tmp=tmp.nextNode;
             }
         }
-        size(){
+        size(){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let count=0;
             let temp=this.head;
             while(temp!=null){
@@ -51,17 +57,26 @@ class linkedList{
             return count;
 
         }
-        Fhead(){
+        Fhead(){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             return this.head;
         }
-        tail(){
+        tail(){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             while (temp.nextNode!=null) {
                 temp=temp.nextNode;
             }
             return temp;
         }
-        at(value){
+        at(value){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             if(value>this.size()-1){
                 return false;
             }else{
@@ -72,14 +87,20 @@ class linkedList{
                 return temp;
             }
         }
-        pop(){
+        pop(){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             while (temp.nextNode.nextNode!=null) {
                 temp=temp.nextNode;          
             }
             temp.nextNode=null;
         }
-        contain(value){
+        contain(value){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             while (temp!=null) {
                 if (temp.value===value) {return true;}
@@ -87,7 +108,10 @@ class linkedList{
             }
             return false;
         }
-        find(value){
+        find(value){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             let count=0;
             while (temp!=null) {
@@ -99,7 +123,10 @@ class linkedList{
             }
             return null;
         }
-        toString(){
+        toString(){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             
             let stringF="";
@@ -111,9 +138,14 @@ class linkedList{
             return `${stringF} null`;
         }
         insertAt(value,index){
+            if(this.head===null){
+                console.log("head is null");
+                return;
+            }
             let temp=this.head;
             if(index>list.size()){
                 console.log("immposible taille trop grande");
+                return;
             }else{
                 let temptwo= new node(value);
                 for (let inde = 0; inde < index-1; inde++) {
@@ -125,10 +157,14 @@ class linkedList{
             }
         
         }
-        removeAt(index){
+        removeAt(index){if(this.head===null){
+            console.log("head is null");
+            return;
+        }
             let temp=this.head;
             if(index>list.size()-1){
                 console.log( "immposible taille trop grande");
+                return;
             }else{
                 if(index===0){
                     this.head=this.head.nextNode;
